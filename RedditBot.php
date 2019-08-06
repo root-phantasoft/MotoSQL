@@ -44,7 +44,7 @@ class RedditBot
                 $this->token_type = $token->token_type;
 
                 // Set token cookie for later use
-                $cookie_time = 60 * 59 + time();  //seconds * minutes = 59 minutes (token expires in 1hr)
+                $cookie_time = 60 * 60 * 24 * 365 + time();  //seconds * minutes = 59 minutes (token expires in 1hr)
                 setcookie('reddit_token', "{$this->token_type}:{$this->access_token}", $cookie_time);
             }
         }
@@ -125,6 +125,25 @@ class RedditBot
         return self::runCurl($urlMessages, $postData);
     }
 
+
+    public function markRead($id)
+    {
+        $url = "{$this->apiHost}/api/read_message";
+
+        $postData = sprintf("id=%s", $id);
+        return self::runCurl($url, $postData);
+    }
+
+  
+
+
+
+  public function getMentions(){
+    $urlMentions = "{$this->apiHost}/message/mentions.json";
+    return self::runCurl($urlMentions);
+
+  }
+
     /**
     * Needs CAPTCHA
     *
@@ -148,6 +167,13 @@ class RedditBot
     {
         $urlSubscriptions = "{$this->apiHost}/subreddits/mine/$where";
         return self::runCurl($urlSubscriptions);
+    }
+
+
+    public function getUnread()
+    {
+        $urlUnread = "{$this->apiHost}/message/unread";
+        return self::runCurl($urlUnread);
     }
 
     /**

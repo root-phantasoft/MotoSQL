@@ -5,14 +5,14 @@ class RedditConfig{
     static $ENDPOINT_OAUTH = 'https://oauth.reddit.com';
 
     //access token configuration from https://ssl.reddit.com/prefs/apps
-    static $CLIENT_ID = 'rL05uBLGydiVBg';
-    static $CLIENT_SECRET = '5OsiGlX0oc28xIpBh0u0q4Hy3ro';
+    static $CLIENT_ID = 'cCA5nq_SWEfu4Q';
+    static $CLIENT_SECRET = 'KRIWyG6cUflM3rOOokYpZ8dDecY';
 
     // Custom user agent as per API directives
-    static $CLIENT_USER_AGENT = 'GabenBot/0.1 by Krimo';
+    static $CLIENT_USER_AGENT = 'MotoSQL/0.1 by gnualmafuerte';
 
     // User (bot) credentials
-    static $USERNAME = 'I_Hail_GabeN';
-    static $PASSWORD = 'FXwQ67^gBc^hpusJHkusFof';
+    static $USERNAME = 'motosql';
+    static $PASSWORD = '16atf21mig';
 }
 ?>
